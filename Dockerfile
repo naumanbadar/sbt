@@ -1,7 +1,6 @@
 FROM openjdk:8
 
 MAINTAINER Nauman Badar
-#pushed to hub.docker as naumanbadar/sbt
 
 # set correct time zone. In my case it is Stockholm. This is a temporary fix until docker fixes the issue of always getting container with UTC timezone.
 RUN echo Europe/Stockholm | tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata \
