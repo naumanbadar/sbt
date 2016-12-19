@@ -20,6 +20,10 @@ RUN echo Europe/Stockholm | tee /etc/timezone && dpkg-reconfigure --frontend non
 && apt-get update \
 && apt-get install -y curl \
 
+# ping for checking connectivity in docker-compose between containers
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+&& apt-get install iputils-ping \
+
 # sbt
 #~~~~
 
