@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM ubuntu:16.04
 
 MAINTAINER Nauman Badar
 
@@ -9,6 +9,10 @@ RUN echo Europe/Stockholm | tee /etc/timezone && dpkg-reconfigure --frontend non
 && echo "alias ll='ls -la'" >> /root/.bashrc \
 && echo "alias l=ls" >> /root/.bashrc \
 
+#  default openjdk
+#~~~~~~~~~~~~~~~~~
+&& apt-get update \
+&& apt-get install -y default-jdk \
 
 # sbt
 #~~~~
@@ -24,4 +28,3 @@ RUN echo Europe/Stockholm | tee /etc/timezone && dpkg-reconfigure --frontend non
 && apt-get install -y sbt
 
 WORKDIR project
-
