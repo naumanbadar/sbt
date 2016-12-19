@@ -14,6 +14,12 @@ RUN echo Europe/Stockholm | tee /etc/timezone && dpkg-reconfigure --frontend non
 && apt-get update \
 && apt-get install -y default-jdk \
 
+
+# curl for installation of other tools later
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+&& apt-get update \
+&& apt-get install -y curl \
+
 # sbt
 #~~~~
 
