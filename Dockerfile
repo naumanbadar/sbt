@@ -23,5 +23,14 @@ RUN echo Europe/Stockholm | tee /etc/timezone && dpkg-reconfigure --frontend non
 && apt-get update \
 && apt-get install -y sbt
 
+# node
+#~~~~~
+# node is required for running play tests
+RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - \
+&& apt-get install -y nodejs
+#now export SBT_OPTS="$SBT_OPTS -Dsbt.jse.engineType=Node"
+#The above declaration ensures that Node.js is used when executing any sbt-web plugin.
+ENV SBT_OPTS "$SBT_OPTS -Dsbt.jse.engineType=Node"
+
 WORKDIR project
 
