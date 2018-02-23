@@ -1,7 +1,5 @@
 FROM openjdk:8
 
-MAINTAINER Nauman Badar
-
 # set correct time zone. In my case it is Stockholm. This is a temporary fix until docker fixes the issue of always getting container with UTC timezone.
 ENV TZ=Europe/Stockholm
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
@@ -27,7 +25,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
 # node
 #~~~~~
 # node is required for running play tests
-RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
 && apt-get install -y nodejs
 #now export SBT_OPTS="$SBT_OPTS -Dsbt.jse.engineType=Node"
 #The above declaration ensures that Node.js is used when executing any sbt-web plugin.
